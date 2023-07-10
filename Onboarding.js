@@ -11,15 +11,28 @@ const Onboarding = ({navigation}) => {
             <View style={styles.letsGetStartedParent}>
                     <TouchableOpacity onPress={() => navigation.navigate('MorningSurvey')}>
                         <Text style={[styles.letsGetStarted1, styles.meetLunaYour1Typo]}>Let's get started!</Text>
+                        <Image
+                        style={styles.arrowRightIcon}
+                        contentFit="cover"
+                        source={require("./assets/arrow-right.png")}
+                        />
                     </TouchableOpacity>
                     <Image style={styles.arrowRightIcon1} resizeMode="cover" />
             </View>
             <Text style={[styles.meetLunaYour1, styles.meetLunaYour1Typo]}>{`Meet Luna, your wellness companion`}</Text>
-            <Text style={[styles.intelligentGuidanceTailored1, styles.meetLunaYour1Typo]}>{`Intelligent guidance  tailored just for you `}</Text>
+            <Text style={[styles.intelligentGuidanceTailored1, styles.meetLunaYour1Typo]}>{`Intelligent guidance tailored just for you `}</Text>
         </LinearGradient>);
 };
 
 const styles = StyleSheet.create({
+    arrowRightIcon: {
+        top: 3,
+        left: 155,
+        width: 24,
+        height: 24,
+        position: "absolute",
+        overflow: "hidden",
+    },
     letsGetStarted1Position: {
         left: 0,
         top: 0

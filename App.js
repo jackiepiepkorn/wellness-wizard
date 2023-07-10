@@ -16,9 +16,16 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Onboarding">
-          <Stack.Screen name="Onboarding" component={Onboarding} />
-          <Stack.Screen name="MorningSurvey" component={MorningSurvey} />
+      <Stack.Navigator screenOptions={{
+          headerStyle: {
+            backgroundColor: "#053b63", // Set the desired background color for the header
+          },
+          headerTintColor: 'white', // Set the text color of the header buttons
+        }} initialRouteName="Onboarding">
+          <Stack.Screen options={{ headerShown:false }} name="Onboarding" component={Onboarding} />
+          <Stack.Screen options={{
+            title: "Survey",
+          }} name="MorningSurvey" component={MorningSurvey} />
           <Stack.Screen name="GoalSetting" component={OnboardingGoalSetting} />
           <Stack.Screen name="HealthGoals" component={OnboardingChooseHealthGoals} />
           <Stack.Screen name="HealthSetting" component={OnboardingHealthGoalSetting} />

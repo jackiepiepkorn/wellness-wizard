@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Text, StyleSheet, Image, View, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FontFamily, FontSize, Color } from "./OnboardingChooseHealthGoals.styles";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const OnboardingHealthGoals = ({ navigation }) => {
 
@@ -67,10 +68,15 @@ const OnboardingHealthGoals = ({ navigation }) => {
         Stress Management
       </Text>
       <Text onPress={() => setExercise(!exercise)} style={[styles.exercise, styles.sleepTypo]}>Exercise</Text>
-      <Pressable
-        style={[styles.rectanglePressable, styles.nextParentShadowBox]}
-        onPress={() => navigation.navigate("HealthSetting")}
-      />
+      <View style={[styles.nextParent, styles.rectanglePressable]}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('HealthSetting')}>
+          <Image
+            style={[styles.arrowRightIcon, styles.arrowIconLayout]}
+            contentFit="cover"
+            source={require("./assets/next.png")}
+          />
+        </TouchableWithoutFeedback>
+      </View>
       <Text
         style={[styles.wellnessChallenge, styles.foodIntakeTypo]}
       >{`Wellness Challenge `}</Text>
@@ -79,6 +85,42 @@ const OnboardingHealthGoals = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  rectanglePressable: {
+    top: 749,
+    borderRadius: 80,
+    backgroundColor: "#053b63",
+    width: 140,
+    height: 57,
+    left: 230,
+  },
+  next: {
+    top: 0,
+    left: 0,
+    fontSize: 18,
+    fontWeight: "500",
+  },
+  nextFlexBox: {
+    textAlign: "left",
+    color: Color.white,
+    position: "absolute",
+  },
+  nextParentShadowBox: {
+    shadowOpacity: 1,
+    elevation: 4,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowColor: "rgba(0, 0, 0, 0.25)",
+    position: "absolute",
+  },
+  nextParent: {
+    top: 764,
+    left: 269,
+    width: 80,
+    height: 27,
+  },
   onboardingChildLayout: {
     height: 165,
     width: 177,
@@ -181,25 +223,6 @@ const styles = StyleSheet.create({
     height: 844,
     backgroundColor: "transparent",
     overflow: "hidden",
-  },
-  rectanglePressable: {
-    top: 749,
-    borderRadius: 80,
-    backgroundColor: "#053b63",
-    width: 134,
-    height: 57,
-    left: 241,
-  },
-  nextParentShadowBox: {
-    shadowOpacity: 1,
-    elevation: 4,
-    shadowRadius: 4,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowColor: "rgba(0, 0, 0, 0.25)",
-    position: "absolute",
   },
 });
 

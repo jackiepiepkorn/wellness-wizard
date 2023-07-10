@@ -56,7 +56,7 @@ const OnboardingHealthGoalSetting = ({navigation}) => {
           styles.onboardingHealthGoalSettiInner,
           styles.nextParentShadowBox,
         ]}
-        onPress={() => navigation.navigate("HomeWhiteColor")}
+        onPress={() => navigation.navigate("Home")}
       />
       <View style={[styles.nextParent, styles.nextParentShadowBox]}>
         <TouchableOpacity onPress={() =>navigation.navigate('Home') }>
@@ -65,6 +65,7 @@ const OnboardingHealthGoalSetting = ({navigation}) => {
         <Image
           style={[styles.arrowRightIcon, styles.arrowIconLayout]}
           contentFit="cover"
+          source={require('./assets/arrow-right.png')}
         />
       </View>
       <View style={[styles.rectangleView, styles.onboardingLayout]} />
